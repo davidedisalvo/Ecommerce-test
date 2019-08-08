@@ -17,8 +17,7 @@ export default new Store({
       let itemAlreadyInList = state.cart.find(item => {
         return item.title === payload.title
       })
-      console.log('itemAlreadyInList', itemAlreadyInList);
-      // if the item is not in the list
+      // if the item is not in the list, add it to the cart
       if(!itemAlreadyInList) {
         state.cart.push(payload)
       }
