@@ -1,39 +1,33 @@
 import Vue from 'vue'
-import Vuex from 'vuex'
+import Vuex, { Store } from 'vuex'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
+export default new Store({
   state: {
     cart: [],
     openCart: false
-
   },
   mutations: {
     addToCart(state, payload) {
-      if (this.state.cart.length < 1) {
-        this.state.cart.push(payload)
+      if (state.cart.length < 1) {
+        state.cart.push(payload)
       }
 
-        let itemAlreadyInList;
-        this.state.cart.filter(el=>{
-        itemAlreadyInList =  el.title !== payload.title
-
-        });
-        if(itemAlreadyInList) {
-          this.state.cart.push(payload)
-        }
-     
+      let itemAlreadyInList = state.cart.find(item => {
+        return item.title === payload.title
+      })
+      console.log('itemAlreadyInList', itemAlreadyInList);
+      // if the item is not in the list
+      if(!itemAlreadyInList) {
+        state.cart.push(payload)
+      }
     },
     toggleCart(state) {
-      let defaultValue = this.state.openCart;
-      this.state.openCart = !defaultValue
+      state.openCart = !state.openCart
     },
     openCart(state) {
-      this.state.openCart = true
+      state.openCart = true
     }
-  },
-  actions: {
-
   }
 })
