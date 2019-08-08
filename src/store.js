@@ -1,7 +1,7 @@
-import Vue from 'vue'
-import Vuex, { Store } from 'vuex'
+import Vue from "vue";
+import Vuex, { Store } from "vuex";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 export default new Store({
   state: {
@@ -11,22 +11,22 @@ export default new Store({
   mutations: {
     addToCart(state, payload) {
       if (state.cart.length < 1) {
-        state.cart.push(payload)
+        state.cart.push(payload);
       }
 
       let itemAlreadyInList = state.cart.find(item => {
-        return item.title === payload.title
-      })
+        return item.title === payload.title;
+      });
       // if the item is not in the list, add it to the cart
-      if(!itemAlreadyInList) {
-        state.cart.push(payload)
+      if (!itemAlreadyInList) {
+        state.cart.push(payload);
       }
     },
     toggleCart(state) {
-      state.openCart = !state.openCart
+      state.openCart = !state.openCart;
     },
     openCart(state) {
-      state.openCart = true
+      state.openCart = true;
     }
   }
-})
+});
