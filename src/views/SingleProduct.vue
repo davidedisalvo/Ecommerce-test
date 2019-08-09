@@ -1,20 +1,24 @@
 <template>
     <div class="single-product">
+        <h1 class="main-title">SINGLE PRODUCT</h1>
         <b-card no-body class="overflow-hidden" style="max-width: 1040px;">
     <b-row no-gutters>
       <b-col md="6">
         <b-card-img :src="getSingleProduct.fields.image.fields.file.url" class="rounded-0"></b-card-img>
       </b-col>
       <b-col md="6">
-        <b-card-body title="Horizontal Card">
+        <b-card-body>
         <b-card-text>
            <h1>{{getSingleProduct.fields.title}}</h1>
           </b-card-text>
           <b-card-text>
            {{getSingleProduct.fields.description}}
           </b-card-text>
-          <b-button href="#" variant="primary"><router-link to="/" tag="span">Product details</router-link></b-button>
-    <b-button href="#" variant="primary" @click="addToCart()">Buy</b-button>
+          <div class="button-group">
+               <b-button href="#" variant="primary"><router-link to="/" tag="span">Product details</router-link></b-button>
+            <b-button href="#" variant="primary" @click="addToCart()">Buy</b-button>
+          </div>
+         
         </b-card-body>
       </b-col>
     </b-row>
@@ -60,13 +64,33 @@ export default {
 <style lang="scss" scoped>
 .card {
     margin: 0 auto;
-    margin-top: 200px;
+    margin-top: 100px;
+}
+
+.main-title {
+    font-size: 60px;
+    font-weight: bold;
+    margin-top: 150px;
+    text-transform: uppercase;
 }
 .btn {
     width: 150px;
     display: block;
     margin: auto;
     margin-bottom: 20px;
+}
+
+.row {
+    align-items: center;
+}
+
+.card-body {
+    text-align: left;
+}
+
+.button-group {
+    display: flex;
+    margin-top: 30px;
 }
 </style>
 

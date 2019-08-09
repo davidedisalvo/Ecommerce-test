@@ -2,7 +2,7 @@
     <div class="banner" ><b-jumbotron :style="{ backgroundImage: `url('${bannerImg}')` }" class="jumbotron">
       <div class="header">
         <h1>ECOMMERCE EXAMPLE</h1>
-        <b-button variant="primary" href="#">Go to product</b-button>
+        <b-button href="#">Go to products</b-button>
       </div>
   </b-jumbotron></div>
 </template>
@@ -10,7 +10,7 @@
 export default {
    data() {
     return {
-      bannerImg : require("../../src/assets/static/images/mainBcg.jpeg")
+      bannerImg : require("../../src/assets/static/images/banner.jpg")
     }
   }
 }
@@ -38,5 +38,9 @@ export default {
 
 
 
+}
+
+.btn-primary {
+  background-color: #5f5c5a;
 }
 </style>

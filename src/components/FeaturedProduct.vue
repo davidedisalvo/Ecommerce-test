@@ -1,8 +1,9 @@
 <template>
     <div class="featuredProduct">
-        <b-container>
+        <h1 class="title-featured">Featured products</h1>
+        <b-container fluid>
   <b-row >
-       <b-col col lg="4" v-for="item in list">
+       <b-col col lg="3" v-for="item in list">
         <b-card
     :title="item.fields.title"
     :img-src="item.fields.image.fields.file.url"
@@ -16,11 +17,14 @@
      {{item.fields.description}}
     </b-card-text>
         <b-card-text>
-     {{item.fields.price}}€
+     <h5>Price: {{item.fields.price}}€</h5>
     </b-card-text>
-
-    <b-button href="#" variant="primary"><router-link :to="`/singleProduct/${item.sys.id}`" tag="span">Product details</router-link></b-button>
+    <div class="button-group">
+        <b-button href="#" variant="primary"><router-link :to="`/singleProduct/${item.sys.id}`" tag="span">Details</router-link></b-button>
     <b-button href="#" variant="primary" @click="addToCart(item)">Buy</b-button>
+
+    </div>
+    
         </b-card>
   </b-col>
   </b-row>
@@ -67,9 +71,30 @@ export default {
     margin-right: auto !important;
 }
 
+.title-featured {
+    margin-top: 70px;
+    margin-bottom: 30px;
+    font-size: 50px;
+}
+
+.button-group {
+    display: flex;
+}
+
+.card-text {
+    text-align: left;
+}
+
+.card-title {
+    text-transform: uppercase;
+}
 .btn {
     width: 50%;
     margin: 10px;
+}
+
+h5 {
+    margin-top: 20px;
 }
 </style>
 

@@ -1,6 +1,6 @@
 <template>
     <div class="header">
-<b-navbar toggleable="lg" type="dark" variant="info" fixed="top">
+<b-navbar toggleable="lg" fixed="top">
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
@@ -8,6 +8,8 @@
       <b-navbar-nav>
         <b-nav-item href="#"><router-link to="/">Home</router-link></b-nav-item>
         <b-nav-item href="#"><router-link to="about">About</router-link></b-nav-item>
+        <b-nav-item href="#"><router-link to="items">Your items</router-link></b-nav-item>
+
       </b-navbar-nav>
 
       <!-- Right aligned nav items -->
@@ -17,7 +19,7 @@
 
 
           <!-- Using 'button-content' slot -->
- <b-nav-item href="#"><i class="fas fa-shopping-cart" @click="openCart">{{getCartNumber}}</i>
+ <b-nav-item href="#"><i class="fas fa-shopping-cart" @click="openCart"></i>
 
 </b-nav-item>        
       </b-navbar-nav>
@@ -58,6 +60,22 @@ export default {
 .right{
   margin-left: auto;
 }
+
+.navbar {
+  background: #5f5c5a;
+}
+
+.nav-item {
+  a {
+    color: white;
+  }
+}
+
+.fas {
+  color: white;
+}
+
+
 </style>
 
 

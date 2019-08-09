@@ -11,19 +11,18 @@ export default new Vuex.Store({
   },
   mutations: {
     addToCart(state, payload) {
-      if (this.state.cart.length < 1) {
-        this.state.cart.push(payload)
+      let itemAlreadyInList = state.cart.find(item => {
+        return item.title === payload.title
+      })
+      // if the item is not in the list
+      if(!itemAlreadyInList) {
+        state.cart.push(payload)
       }
 
-        let itemAlreadyInList;
-        this.state.cart.filter(el=>{
-        itemAlreadyInList =  el.title !== payload.title
-
-        });
-        if(itemAlreadyInList) {
-          this.state.cart.push(payload)
-        }
-     
+      if(itemAlreadyInList) {
+        const index = state.cart.findIndex(item => item.title === itemAlreadyInList.title);
+        state.cart[index].quantity ++
+      }
     },
     toggleCart(state) {
       let defaultValue = this.state.openCart;
@@ -31,9 +30,25 @@ export default new Vuex.Store({
     },
     openCart(state) {
       this.state.openCart = true
+    },
+    deleteFromCart(state, payload) {
+      let itemAlreadyInList = state.cart.find(item => {
+        return item.title === payload.title
+      })
+      // if the item is not in the list
+
+      if(itemAlreadyInList) {
+        const index = state.cart.findIndex(item => item.title === itemAlreadyInList.title);
+        console.log(state.cart[index].quantity)
+        if(state.cart[index].quantity > 1) {
+          state.cart[index].quantity --
+        } else {
+          state.cart.splice(index,1)
+
+        }
+
+      }
     }
   },
-  actions: {
-
-  }
+  
 })
