@@ -4,7 +4,10 @@
         <b-container fluid>
   <b-row >
        <b-col col lg="3" v-for="item in list">
+            
         <b-card
+       v-match-heights="{
+    el: ['.card']}"
     :title="item.fields.title"
     :img-src="item.fields.image.fields.file.url"
     img-alt="Image"
@@ -13,15 +16,15 @@
     style="max-width: 20rem;"
     class="mb-2 item"
   >
-    <b-card-text>
+    <b-card-text >
      {{item.fields.description}}
     </b-card-text>
         <b-card-text>
      <h5>Price: {{item.fields.price}}€</h5>
     </b-card-text>
     <div class="button-group">
-        <b-button href="#" variant="primary"><router-link :to="`/singleProduct/${item.sys.id}`" tag="span">Details</router-link></b-button>
-    <b-button href="#" variant="primary" @click="addToCart(item)">Buy</b-button>
+        <b-button href="#"><router-link :to="`/singleProduct/${item.sys.id}`" tag="span">Details</router-link></b-button>
+    <b-button href="#" @click="addToCart(item)">Buy</b-button>
 
     </div>
     
@@ -74,7 +77,9 @@ export default {
 .title-featured {
     margin-top: 70px;
     margin-bottom: 30px;
-    font-size: 50px;
+    font-size: 70px;
+    font-weight: bold;
+    text-align: center;
 }
 
 .button-group {
@@ -91,10 +96,14 @@ export default {
 .btn {
     width: 50%;
     margin: 10px;
+    background: #646D74;
 }
 
 h5 {
     margin-top: 20px;
+}
+.col {
+    margin-bottom: 60px;
 }
 </style>
 

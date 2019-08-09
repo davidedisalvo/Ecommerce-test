@@ -9,7 +9,7 @@
     <b-badge variant="primary" pill>Quantity: {{item.quantity}}</b-badge>
   </b-list-group-item>
 </b-list-group>
-<p>Total price: {{totalPrice}}</p>
+<p v-if="this.$store.state.cart.length > 0" @click="test()">Total price: {{totalPrice}}</p>
 </div>
 
 </template>
@@ -63,6 +63,7 @@ img {
 
 .items {
     margin-top: 100px;
+    height: 100vh;
 }
 
 p {
