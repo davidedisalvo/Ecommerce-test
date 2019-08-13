@@ -67,11 +67,17 @@ export default {
     margin-top: 100px;
 }
 
+.single-product {
+    height: calc(100vh - 150px)
+}
+
 .main-title {
     font-size: 60px;
     font-weight: bold;
-    margin-top: 150px;
     text-transform: uppercase;
+
+    padding: 100px;
+
 }
 .btn {
     width: 150px;

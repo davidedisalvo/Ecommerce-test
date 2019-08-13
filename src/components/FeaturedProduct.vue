@@ -7,7 +7,7 @@
             
         <b-card
        v-match-heights="{
-    el: ['.card']}"
+    el: ['.item']}"
     :title="item.fields.title"
     :img-src="item.fields.image.fields.file.url"
     img-alt="Image"
@@ -15,8 +15,10 @@
     tag="article"
     style="max-width: 20rem;"
     class="mb-2 item"
+    :class='{highlight:item.sys.id == selected}'
   >
-    <b-card-text >
+    <b-card-text class="card-text-equalizer" v-match-heights="{
+    el: ['.card-text-equalizer']}">
      {{item.fields.description}}
     </b-card-text>
         <b-card-text>
@@ -27,7 +29,7 @@
     <b-button href="#" @click="addToCart(item)">Buy</b-button>
 
     </div>
-    
+    <i class="fas fa-check"></i>
         </b-card>
   </b-col>
   </b-row>
@@ -39,7 +41,8 @@ import items from '../../data/productData.js'
 export default {
     data() {
         return {
-            featuredProducts : items
+            featuredProducts : items,
+            selected: undefined
         }
     },
     computed: {
@@ -49,7 +52,6 @@ export default {
     },
     methods: {
         addToCart(item) {
-            console.log(item)
             const itemInCart = {
                 id: item.sys.id,
                 title: item.fields.title,
@@ -58,6 +60,8 @@ export default {
                 price: item.fields.price,
                 quantity: 1
             }
+            console.log(event)
+            this.selected = item.sys.id
             this.$store.commit('addToCart', itemInCart)
             this.$store.commit('openCart')
 
@@ -80,6 +84,13 @@ export default {
     font-size: 70px;
     font-weight: bold;
     text-align: center;
+     @media only screen and (max-width: 400px) {
+      font-size: 38px;
+    }
+}
+
+.choosenItem {
+    border: 2px solid greenyellow;
 }
 
 .button-group {
@@ -92,11 +103,23 @@ export default {
 
 .card-title {
     text-transform: uppercase;
+    width: 100%;
+    font-weight: bold;
 }
 .btn {
     width: 50%;
     margin: 10px;
     background: #646D74;
+}
+.fa-check {
+    display: none;
+}
+
+.item.highlight {
+    border: 2px solid green;
+    .fa-check {
+    display: block;
+}
 }
 
 h5 {

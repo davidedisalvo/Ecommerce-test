@@ -16,18 +16,21 @@
     
             </router-link>
                
-    <div>        <h4 v-if="this.$store.state.cart.length > 0" @click="test()">Total price:{{totalPrice}}€</h4>
+    <div class="total-price">        <h4 v-if="this.$store.state.cart.length > 0" @click="test()">Total price:{{totalPrice}}€</h4>
 </div>
         </div>
 
     </div>
 </template>
 <script>
+import { mixin as clickaway } from 'vue-clickaway';
 export default {
+     mixins: [ clickaway ],
     data() {
         return {
         }
     },
+
     computed: {
         getCartItems() {
             return this.$store.state.cart
@@ -37,11 +40,13 @@ export default {
         const quantity = cart.filter(function( obj ) {
     return obj
 }).map(function( obj ) {
+    console.log(obj.quantity)
     return obj.quantity;
 })
 const price = cart.filter(function( obj ) {
     return obj
 }).map(function( obj ) {
+    console.log(obj.price)
     return obj.price;
 })
 const sum = quantity.reduce(function(r,a,i){return r+a*price[i]},0)
@@ -93,10 +98,16 @@ img {
     background: transparent;
 }
 
+.total-price {
+    border-top: 2px solid white;
+}
+
 h4 {
     margin-right: auto;
     text-align: left;
+    font-weight: bold;
     padding-left: 15px;
+    color: white;
 }
 </style>
 

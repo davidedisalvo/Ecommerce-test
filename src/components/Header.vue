@@ -19,7 +19,7 @@
 
 
           <!-- Using 'button-content' slot -->
- <b-nav-item href="#"><i class="fas fa-shopping-cart" @click="openCart"></i>
+ <b-nav-item class="icon-item" href="#"><i class="fas fa-shopping-cart" @click="openCart">{{getCartNumber}}</i>
 
 </b-nav-item>        
       </b-navbar-nav>
@@ -41,15 +41,28 @@ export default {
     },
     computed: {
       getCartNumber() {
-        return this.$store.state.cart.length
+        let arr = this.$store.state.cart
+                let totalLength = this.$store.state.cart.length
+                if(totalLength > 0) {
 
+        const quantity = arr.filter(function( obj ) {
+    return obj
+}).map(function( obj ) {
+    return obj.quantity;
+})
+
+
+const sum = quantity.reduce(function(r,a){return r+a},0)
+
+return sum
+       
+                } 
+
+        return this.$store.state.cart.length
       }
     },
     methods: {
       openCart() {
-        // const test = document.getElementById('cartSide')
-        // test.style.transform = "translateX(0)";
-        // console.log(test)
         this.$store.commit('toggleCart')
       }
     }
@@ -60,6 +73,9 @@ export default {
 .right{
   margin-left: auto;
 }
+.navbar-light .navbar-toggler {
+  border: none;
+}
 
 .navbar {
   background: #5f5c5a;
@@ -68,11 +84,28 @@ export default {
 .nav-item {
   a {
     color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    &:hover {
+      text-decoration: none;
+      opacity: .7;
+      transition: all .5s;
+    }
   }
 }
 
 .fas {
   color: white;
+}
+
+.fa-shopping-cart:before {
+  padding-right: 10px;
+}
+
+@media only screen and (max-width: 400px) {
+  .icon-item {
+    display: none;
+  }
 }
 
 

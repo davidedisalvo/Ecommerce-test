@@ -11,6 +11,7 @@
     "bootstrap-vue": "^2.0.0-rc.27",
     "core-js": "^2.6.5",
     "vue": "^2.6.10",
+    "vue-clickaway": "^2.2.2",
     "vue-equalizer": "^1.0.7",
     "vue-match-heights": "^0.1.1",
     "vue-router": "^3.0.3",

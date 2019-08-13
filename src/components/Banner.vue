@@ -18,6 +18,9 @@ export default {
 <style lang="scss" scoped>
 .jumbotron {
   height: 700px;
+   @media only screen and (max-width: 400px) {
+      height: 400px;
+    }
     background-size: cover;
     border-radius: 0 !important;
     margin-bottom: 0;
@@ -27,20 +30,26 @@ export default {
     margin-top: 20%;
     display: flex;
     flex-direction: column;
+    @media only screen and (max-width: 400px) {
+      align-items: center;
+    }
     h1 {
       color: white;
       font-size: 60px;
+       @media only screen and (max-width: 400px) {
+      font-size: 48px;
+    }
     }
     }
     .btn {
-      width: 50%;
+      width: 40%;
     }
 
 
 
 }
 
-.btn-primary {
+.btn-secondary {
   background-color: #5f5c5a;
 }
 </style>

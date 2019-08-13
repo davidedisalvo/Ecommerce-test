@@ -5,7 +5,7 @@
      <CartSide />
     </div>
     <router-view/>
-    <div id="footer"><Footer /></div>
+<Footer />
   </div>
 </template>
 <script>
@@ -30,11 +30,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   font-family: 'Oswald', sans-serif;
+  background: #eaeaea;
 }
 
-#footer {
-position: sticky;
-bottom: 0;
-}
 
 </style>
