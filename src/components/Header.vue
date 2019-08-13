@@ -1,23 +1,26 @@
 <template>
-    <div class="header">
-<b-navbar toggleable="lg" fixed="top">
+  <div class="header">
+    <b-navbar toggleable="lg" fixed="top">
+      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
-    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+      <b-collapse id="nav-collapse" is-nav>
+        <b-navbar-nav>
+          <b-nav-item href="#">
+            <router-link to="/">Home</router-link>
+          </b-nav-item>
+          <b-nav-item href="#">
+            <router-link to="products">Products</router-link>
+          </b-nav-item>
+          <b-nav-item href="#">
+            <router-link to="about">About</router-link>
+          </b-nav-item>
+          <b-nav-item href="#">
+            <router-link to="items">Your items</router-link>
+          </b-nav-item>
+        </b-navbar-nav>
 
-    <b-collapse id="nav-collapse" is-nav>
-      <b-navbar-nav>
-        <b-nav-item href="#"><router-link to="/">Home</router-link></b-nav-item>
-        <b-nav-item href="#"><router-link to="about">About</router-link></b-nav-item>
-        <b-nav-item href="#"><router-link to="items">Your items</router-link></b-nav-item>
-
-      </b-navbar-nav>
-
-      <!-- Right aligned nav items -->
-      <b-navbar-nav class="right">
-
-
-
-
+        <!-- Right aligned nav items -->
+        <b-navbar-nav class="right">
           <!-- Using 'button-content' slot -->
  <b-nav-item class="icon-item" href="#"><i class="fas fa-shopping-cart" @click="openCart">{{getCartNumber}}</i>
 
@@ -29,10 +32,10 @@
 </template>
 <script>
 export default {
-    data: () => ({
-      drawer: false,
-      group: null,
-    }),
+  data: () => ({
+    drawer: false,
+    group: null
+  }),
 
     watch: {
       group () {
@@ -66,11 +69,12 @@ return sum
         this.$store.commit('toggleCart')
       }
     }
-}
+  }
+};
 </script>
 
 <style lang="scss" scoped>
-.right{
+.right {
   margin-left: auto;
 }
 .navbar-light .navbar-toggler {

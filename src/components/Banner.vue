@@ -1,19 +1,23 @@
 <template>
-    <div class="banner" ><b-jumbotron :style="{ backgroundImage: `url('${bannerImg}')` }" class="jumbotron">
+  <div class="banner">
+    <b-jumbotron :style="{ backgroundImage: `url('${bannerImg}')` }" class="jumbotron">
       <div class="header">
         <h1>ECOMMERCE EXAMPLE</h1>
-        <b-button href="#">Go to products</b-button>
+        <b-button href="#">
+          <router-link tag="span" to="/products">Go to products</router-link>
+        </b-button>
       </div>
-  </b-jumbotron></div>
+    </b-jumbotron>
+  </div>
 </template>
 <script>
 export default {
-   data() {
+  data() {
     return {
-      bannerImg : require("../../src/assets/static/images/banner.jpg")
-    }
+      bannerImg: require("../../src/assets/static/images/banner.jpg")
+    };
   }
-}
+};
 </script>
 <style lang="scss" scoped>
 .jumbotron {
@@ -25,8 +29,8 @@ export default {
     border-radius: 0 !important;
     margin-bottom: 0;
 
-    .header {
-      float: right;
+  .header {
+    float: right;
     margin-top: 20%;
     display: flex;
     flex-direction: column;
