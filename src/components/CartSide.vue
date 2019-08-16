@@ -1,9 +1,10 @@
 <template>
     <div class="cart-side" :class="{'open' : this.$store.state.openCart}" id="cartSide">
         <div class="inner">
-            <router-link to="/items">
+            <router-link  to="/items">
              <b-card
     v-for="item in getCartItems"
+    @click='itemClicked()'
 
     >
     <img :src="item.img" alt="">
@@ -54,6 +55,12 @@ const sum = quantity.reduce(function(r,a,i){return r+a*price[i]},0)
 return sum
 
 }
+},
+methods: {
+    itemClicked() {
+        console.log('item clicked')
+        this.$store.commit('closeCart')
+    }
 }
 
 }

@@ -15,6 +15,8 @@
             tag="article"
             style="max-width: 20rem;"
             class="mb-2 item"
+            :class='{highlight:item.sys.id == selected}'
+
           >
             <b-card-text>{{item.fields.description}}</b-card-text>
             <b-card-text>
@@ -26,6 +28,8 @@
               </b-button>
               <b-button href="#" @click="addToCart(item)">Buy</b-button>
             </div>
+                <i class="fas fa-check"></i>
+
           </b-card>
         </b-col>
       </b-row>
@@ -39,7 +43,8 @@ export default {
   components: { Filters },
   data() {
     return {
-      featuredProducts: items
+      featuredProducts: items,
+      selected: undefined
     };
   },
   computed: {
@@ -58,6 +63,8 @@ export default {
         price: item.fields.price,
         quantity: 1
       };
+      this.selected = item.sys.id
+
       this.$store.commit("addToCart", itemInCart);
       this.$store.commit("openCart");
     }
@@ -74,6 +81,16 @@ export default {
 
 .button-group {
   display: flex;
+}
+.fa-check {
+    display: none;
+}
+
+.item.highlight {
+    border: 2px solid green;
+    .fa-check {
+    display: block;
+}
 }
 
 .btn {

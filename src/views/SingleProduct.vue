@@ -15,8 +15,8 @@
            {{getSingleProduct.fields.description}}
           </b-card-text>
           <div class="button-group">
-               <b-button href="#" variant="primary"><router-link to="/" tag="span">Product details</router-link></b-button>
-            <b-button href="#" variant="primary" @click="addToCart()">Buy</b-button>
+               <b-button href="#" ><router-link to="/" tag="span">Product details</router-link></b-button>
+            <b-button href="#"  @click="addToCart()">Buy</b-button>
           </div>
          
         </b-card-body>
@@ -64,12 +64,13 @@ export default {
 <style lang="scss" scoped>
 .card {
     margin: 0 auto;
-    margin-top: 100px;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
-.single-product {
-    height: calc(100vh - 150px)
-}
+// .single-product {
+//     height: calc(100vh - 150px)
+// }
 
 .main-title {
     font-size: 60px;

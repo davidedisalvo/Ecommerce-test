@@ -9,7 +9,7 @@
         <div class="left" :style="{ backgroundImage: `url('${leftImg}')` }"></div>
         </transition>
          <div class="right"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt vitae labore asperiores dicta architecto ullam tempore distinctio illum accusamus dignissimos ex harum, aspernatur sed et ea aliquid excepturi hic repellat!Lorem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea ipsam ratione, consequuntur doloribus omnis ducimus soluta. Iste quod debitis deserunt voluptatem similique quo! Nemo reprehenderit ut inventore quod, magni nihil. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro maxime dolor odit doloribus distinctio iure magni quia quasi deserunt unde, nam similique eaque ipsam fugit sapiente voluptates saepe possimus totam!</p>        
-         <b-button href="#">Contact us</b-button>
+         <b-button @click="showContact = true" href="#">Contact us</b-button>
         
       </div>
         
@@ -17,8 +17,9 @@
     </div>
       </div>
     </div>
-         <Contact></Contact>
-
+    <transition name="smooth" >
+         <Contact v-if="showContact"></Contact>
+</transition>
    
    
 
@@ -30,7 +31,8 @@ export default {
   data() {
     return {
       leftImg: require("../../src/assets/static/images/banner-3.jpg"),
-      bannerImg: require("../../src/assets/static/images/banner-2.jpg")
+      bannerImg: require("../../src/assets/static/images/banner-2.jpg"),
+      showContact: false
   }
 },
 components: {
@@ -71,21 +73,12 @@ components: {
 h1 {
   font-weight: bold;
 }
- .fade-enter{
-        opacity: 0;
-    }
-    .fade-enter-active{
-        transition: opacity 1s;
-    }
-    .fade-leave{
-        /* opacity: 1; */
-    }
-    .fade-leave-active{
-        transition: opacity 1s;
-        opacity: 0;
-    }
 
-
-
+    .smooth-enter-active, .smooth-leave-active {
+  transition: max-height 1s;
+}
+.smooth-enter, .smooth-leave-to {
+  max-height: 0;
+}
 </style>
 

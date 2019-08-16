@@ -38,6 +38,12 @@ export default new Vuex.Store({
       }
 
     },
+    closeCart() {
+      const x = window.matchMedia("(min-width: 400px)")
+      if(x.matches) {
+        this.state.openCart = false
+      }
+    },
 
     deleteFromCart(state, payload) {
       let itemAlreadyInList = state.cart.find(item => {

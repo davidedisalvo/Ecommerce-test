@@ -5,16 +5,16 @@
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          <b-nav-item href="#">
+          <b-nav-item @click="$store.commit('closeCart')" href="#">
             <router-link to="/">Home</router-link>
           </b-nav-item>
-          <b-nav-item href="#">
+          <b-nav-item @click="$store.commit('closeCart')" href="#">
             <router-link to="products">Products</router-link>
           </b-nav-item>
-          <b-nav-item href="#">
+          <b-nav-item @click="$store.commit('closeCart')" href="#">
             <router-link to="about">About</router-link>
           </b-nav-item>
-          <b-nav-item href="#">
+          <b-nav-item  @click="$store.commit('closeCart')" href="#">
             <router-link to="items">Your items</router-link>
           </b-nav-item>
         </b-navbar-nav>

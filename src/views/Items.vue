@@ -12,6 +12,7 @@
     <i class="fas fa-trash-alt" @click="deleteFromCart(item)"></i>
   </b-list-group-item>
 </b-list-group>
+<h3 v-if="this.$store.state.cart.length < 1">You don't have any item in your cart</h3>
 
 <h4 v-if="this.$store.state.cart.length > 0">Total price: {{totalPrice}}</h4>
 </div>
@@ -55,7 +56,9 @@ methods: {
 </script>
 <style lang="scss" scoped>
 
-
+h3 {
+    font-weight: bold;
+}
 img {
     width: 40px;
 }
