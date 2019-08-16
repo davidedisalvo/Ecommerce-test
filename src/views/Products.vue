@@ -7,7 +7,7 @@
         <b-col col lg="3" v-for="item in $store.state.items">
           <b-card
             v-match-heights="{
-    el: ['.card']}"
+    el: ['.item']}"
             :title="item.fields.title"
             :img-src="item.fields.image.fields.file.url"
             img-alt="Image"

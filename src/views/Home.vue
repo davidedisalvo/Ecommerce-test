@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <Banner/>
-    <!-- <Featured/> -->
+    <Featured/>
     <FeaturedProduct/>
   </div>
 </template>

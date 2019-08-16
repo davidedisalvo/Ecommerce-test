@@ -6,7 +6,7 @@
         <div class="">price: {{ price }}€</div>
       </div>
 
-      <b-form-input @change="filtered()" id="range-1" v-model="searching" type="text"></b-form-input>
+      <b-form-input class="searching" @change="filtered()" id="range-1" v-model="searching" type="text"></b-form-input>
     </div>
   </div>
 </template>
@@ -80,8 +80,15 @@ export default {
 }
 .filter-list {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
+}
+
+.searching {
+  @media only screen and (max-width: 380px) {
+    margin-bottom: 30px;
+  }
 }
 </style>
 
