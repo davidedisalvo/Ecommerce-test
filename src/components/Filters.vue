@@ -1,8 +1,11 @@
 <template>
   <div class="filters">
-    <div>
-      <b-form-input id="range-1" @change="filtered()" v-model="price" type="range" min="0" max="90"></b-form-input>
-      <div class="mt-2">price: {{ price }}€</div>
+    <div class="filter-list">
+      <div class="range">
+        <b-form-input id="range-1" @change="filtered()" v-model="price" type="range" min="0" max="90"></b-form-input>
+        <div class="">price: {{ price }}€</div>
+      </div>
+
       <b-form-input @change="filtered()" id="range-1" v-model="searching" type="text"></b-form-input>
     </div>
   </div>
@@ -73,7 +76,12 @@ export default {
 </script>
 <style lang="scss" scoped>
 #range-1 {
-  width: 100px;
+  width: 300px;
+}
+.filter-list {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 </style>
 

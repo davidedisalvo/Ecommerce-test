@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="contact">
       <div class="container">
           <div class="row">
               <div class="col-12">
@@ -30,16 +30,8 @@
       </b-form-group>
 
 
-
-      <b-form-group id="input-group-4">
-        <b-form-checkbox-group v-model="form.checked" id="checkboxes-4">
-          <b-form-checkbox value="me">Check me out</b-form-checkbox>
-          <b-form-checkbox value="that">Check that out</b-form-checkbox>
-        </b-form-checkbox-group>
-      </b-form-group>
-
-      <b-button type="submit" variant="primary">Submit</b-button>
-      <b-button type="reset" variant="danger">Reset</b-button>
+      <b-button type="submit" class="mr-5">Submit</b-button>
+      <b-button type="reset" >Reset</b-button>
     </b-form>
     <div v-if="showMessage">Your form has been submitted</div>
           </div>
@@ -84,3 +76,8 @@
     }
   }
 </script>
+<style lang="scss" scoped>
+.contact {
+  margin-bottom: 50px;
+}
+</style>

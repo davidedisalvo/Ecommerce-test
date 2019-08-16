@@ -7,7 +7,7 @@
             
         <b-card
        v-match-heights="{
-    el: ['.item']}"
+    el: ['.item', '.card-title']}"
     :title="item.fields.title"
     :img-src="item.fields.image.fields.file.url"
     img-alt="Image"
@@ -67,9 +67,7 @@ export default {
 
         }
     },
-    mounted() {
-        console.log(this.featuredProducts)
-    }
+
 }
 </script>
 <style lang="scss" scoped>

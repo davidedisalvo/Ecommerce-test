@@ -53,7 +53,9 @@ methods: {
 
 }
 </script>
-<style>
+<style lang="scss" scoped>
+
+
 img {
     width: 40px;
 }

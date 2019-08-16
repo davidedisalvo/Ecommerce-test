@@ -69,7 +69,7 @@ return sum
         this.$store.commit('toggleCart')
       }
     }
-  }
+  
 };
 </script>
 
