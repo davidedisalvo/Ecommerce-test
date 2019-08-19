@@ -14,7 +14,7 @@
           <b-nav-item @click="$store.commit('closeCart')" href="#">
             <router-link to="about">About</router-link>
           </b-nav-item>
-          <b-nav-item  @click="$store.commit('closeCart')" href="#">
+          <b-nav-item @click="$store.commit('closeCart')" href="#">
             <router-link to="items">Your items</router-link>
           </b-nav-item>
         </b-navbar-nav>
@@ -22,13 +22,13 @@
         <!-- Right aligned nav items -->
         <b-navbar-nav class="right">
           <!-- Using 'button-content' slot -->
- <b-nav-item class="icon-item" href="#"><i class="fas fa-shopping-cart" @click="openCart">{{getCartNumber}}</i>
-
-</b-nav-item>        
-      </b-navbar-nav>
-    </b-collapse>
-  </b-navbar>
-    </div>
+          <b-nav-item class="icon-item" href="#">
+            <i class="fas fa-shopping-cart" @click="openCart">{{getCartNumber}}</i>
+          </b-nav-item>
+        </b-navbar-nav>
+      </b-collapse>
+    </b-navbar>
+  </div>
 </template>
 <script>
 export default {
@@ -37,39 +37,39 @@ export default {
     group: null
   }),
 
-    watch: {
-      group () {
-        this.drawer = false
-      },
-    },
-    computed: {
-      getCartNumber() {
-        let arr = this.$store.state.cart
-                let totalLength = this.$store.state.cart.length
-                if(totalLength > 0) {
-
-        const quantity = arr.filter(function( obj ) {
-    return obj
-}).map(function( obj ) {
-    return obj.quantity;
-})
-
-
-const sum = quantity.reduce(function(r,a){return r+a},0)
-
-return sum
-       
-                } 
-
-        return this.$store.state.cart.length
-      }
-    },
-    methods: {
-      openCart() {
-        this.$store.commit('toggleCart')
-      }
+  watch: {
+    group() {
+      this.drawer = false;
     }
-  
+  },
+  computed: {
+    getCartNumber() {
+      let arr = this.$store.state.cart;
+      let totalLength = this.$store.state.cart.length;
+      if (totalLength > 0) {
+        const quantity = arr
+          .filter(function(obj) {
+            return obj;
+          })
+          .map(function(obj) {
+            return obj.quantity;
+          });
+
+        const sum = quantity.reduce(function(r, a) {
+          return r + a;
+        }, 0);
+
+        return sum;
+      }
+
+      return this.$store.state.cart.length;
+    }
+  },
+  methods: {
+    openCart() {
+      this.$store.commit("toggleCart");
+    }
+  }
 };
 </script>
 
@@ -92,8 +92,8 @@ return sum
     font-weight: bold;
     &:hover {
       text-decoration: none;
-      opacity: .7;
-      transition: all .5s;
+      opacity: 0.7;
+      transition: all 0.5s;
     }
   }
 }
@@ -111,8 +111,6 @@ return sum
     display: none;
   }
 }
-
-
 </style>
 
 

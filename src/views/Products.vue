@@ -1,13 +1,13 @@
 <template>
   <div class="products">
-    <h1 class="title-featured">Featured products</h1>
+    <h1 class="title-featured">PRODUCTS</h1>
     <Filters :products="featuredProducts"/>
     <b-container fluid>
       <b-row>
         <b-col col lg="3" v-for="item in $store.state.items">
           <b-card
             v-match-heights="{
-    el: ['.item']}"
+                el: ['.item', '.card-title']}"
             :title="item.fields.title"
             :img-src="item.fields.image.fields.file.url"
             img-alt="Image"
@@ -15,10 +15,8 @@
             tag="article"
             style="max-width: 20rem;"
             class="mb-2 item"
-            :class='{highlight:item.sys.id == selected}'
-
+            :class="{highlight:item.sys.id == selected}"
           >
-            <b-card-text>{{item.fields.description}}</b-card-text>
             <b-card-text>
               <h5>Price: {{item.fields.price}}€</h5>
             </b-card-text>
@@ -28,8 +26,7 @@
               </b-button>
               <b-button href="#" @click="addToCart(item)">Buy</b-button>
             </div>
-                <i class="fas fa-check"></i>
-
+            <i class="fas fa-check"></i>
           </b-card>
         </b-col>
       </b-row>
@@ -63,7 +60,7 @@ export default {
         price: item.fields.price,
         quantity: 1
       };
-      this.selected = item.sys.id
+      this.selected = item.sys.id;
 
       this.$store.commit("addToCart", itemInCart);
       this.$store.commit("openCart");
@@ -83,20 +80,35 @@ export default {
   display: flex;
 }
 .fa-check {
-    display: none;
+  display: none;
 }
 
 .item.highlight {
-    border: 2px solid green;
-    .fa-check {
+  border: 2px solid green;
+  .fa-check {
     display: block;
+  }
 }
-}
-
 .btn {
   width: 50%;
   margin: 10px;
   background: #646d74;
+}
+
+h1 {
+  font-weight: bold;
+  margin-bottom: 70px;
+  letter-spacing: 3px;
+}
+
+.card-title {
+  text-align: left;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.col {
+  padding-bottom: 15px;
 }
 </style>
 

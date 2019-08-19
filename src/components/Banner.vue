@@ -22,12 +22,12 @@ export default {
 <style lang="scss" scoped>
 .jumbotron {
   height: 700px;
-   @media only screen and (max-width: 400px) {
-      height: 400px;
-    }
-    background-size: cover;
-    border-radius: 0 !important;
-    margin-bottom: 0;
+  @media only screen and (max-width: 400px) {
+    height: 400px;
+  }
+  background-size: cover;
+  border-radius: 0 !important;
+  margin-bottom: 0;
 
   .header {
     float: right;
@@ -39,18 +39,17 @@ export default {
     }
     h1 {
       color: white;
-      font-size: 60px;
-       @media only screen and (max-width: 400px) {
-      font-size: 48px;
+      font-size: 50px;
+      letter-spacing: 5px;
+      font-weight: bold;
+      @media only screen and (max-width: 400px) {
+        font-size: 48px;
+      }
     }
-    }
-    }
-    .btn {
-      width: 40%;
-    }
-
-
-
+  }
+  .btn {
+    width: 40%;
+  }
 }
 
 .btn-secondary {

@@ -1,12 +1,19 @@
 <template>
   <div class="filters">
+    <h1>Filter</h1>
     <div class="filter-list">
       <div class="range">
-        <b-form-input id="range-1" @change="filtered()" v-model="price" type="range" min="0" max="90"></b-form-input>
-        <div class="">price: {{ price }}€</div>
+        <b-form-input id="range-1" v-model="price" type="range" min="0" max="90"></b-form-input>
+        <div class="price">Price: {{ price }}€</div>
       </div>
 
-      <b-form-input class="searching" @change="filtered()" id="range-1" v-model="searching" type="text"></b-form-input>
+      <b-form-input
+        class="searching"
+        id="range-1"
+        v-model="searching"
+        type="text"
+        placeholder="Search your item"
+      ></b-form-input>
     </div>
   </div>
 </template>
@@ -22,30 +29,6 @@ export default {
   },
   props: ["products"],
   computed: {
-    // filteredByPrice() {
-    //   let filteredItemsByPrice = this.products.filter(item => {
-    //     return item.fields.price < this.el;
-    //   });
-    //   this.$store.commit("filteredListByPrice", filteredItemsByPrice);
-    //   //   this.$store.commit("filteredListBySearch", el);
-    // },
-    // filteredBySearch() {
-    //   let el = this.products.filter(el => {
-    //     return el.fields.title
-    //       .toLowerCase()
-    //       .includes(this.search.toLowerCase());
-    //   });
-    //   this.$store.commit("filteredListBySearch", el);
-    // }
-    // filterParams() {
-    //   const params = {
-    //     price: this.el,
-    //     search: this.search
-    //   };
-    //   this.$store.state("filterByParams", params);
-    // }
-  },
-  methods: {
     filtered() {
       let el = this.products.filter(el => {
         return el.fields.title
@@ -55,7 +38,6 @@ export default {
       //if search by price
       if (this.price < 90) {
         let el2 = this.products.filter(el2 => {
-          console.log(el2.fields.price, this.price);
           return el2.fields.price < this.price;
         });
         //if search when category is selected
@@ -64,17 +46,24 @@ export default {
             .toLowerCase()
             .includes(this.searching.toLowerCase());
         });
-        console.log("el3", el3);
         this.$store.commit("filteredList", el3);
       } else {
-        console.log(el);
         this.$store.commit("filteredList", el);
       }
     }
+  },
+  watch: {
+    filtered(newValue) {}
   }
 };
 </script>
 <style lang="scss" scoped>
+.filters {
+  margin-bottom: 100px;
+  padding: 100px 0;
+  background: #5f5c5a;
+  position: relative;
+}
 #range-1 {
   width: 300px;
 }
@@ -89,6 +78,30 @@ export default {
   @media only screen and (max-width: 380px) {
     margin-bottom: 30px;
   }
+}
+
+.range {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.price {
+  font-weight: bold;
+  color: white;
+}
+
+.form-control:focus {
+  border-color: transparent;
+  box-shadow: unset;
+}
+h1 {
+  position: absolute;
+  top: 0;
+  padding: 20px;
+  color: white;
+  left: 50%;
+  transform: translateX(-50%);
 }
 </style>
 
