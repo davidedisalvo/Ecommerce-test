@@ -14,6 +14,9 @@
         type="text"
         placeholder="Search your item"
       ></b-form-input>
+      <h2 @click="sortByPriceAscending">Sort ascending</h2>
+      <h2 @click="sortByPriceDiscending">Sort discending</h2>
+
     </div>
   </div>
 </template>
@@ -50,6 +53,15 @@ export default {
       } else {
         this.$store.commit("filteredList", el);
       }
+    },
+
+  },
+  methods: {
+    sortByPriceAscending() {
+      this.$store.commit("orderListByPriceAscending");
+    },
+    sortByPriceDiscending() {
+      this.$store.commit("orderListByPriceDiscending");
     }
   },
   watch: {

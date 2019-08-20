@@ -63,33 +63,20 @@ export default new Vuex.Store({
         }
       }
     },
-    // filteredListByPrice(state, payload) {
-    //   console.log(payload);
-    //   return (state.items = payload);
-    // },
-    // filteredListBySearch(state, payload) {
-    //   return (state.items = payload);
-    // }
-    filterByParams(state, payload) {
-      // let el = this.state.items.filter(el => {
-      //   return el.title.toLowerCase().includes(this.searching.toLowerCase());
-      // });
-      // //if search by category
-      // if (this.planet !== "") {
-      //   let el2 = state.items.filter(el2 => {
-      //     return el2.title.toLowerCase().includes(this.planet.toLowerCase());
-      //   });
-      //   //if search when category is selected
-      //   let el3 = el2.filter(el => {
-      //     return el.title.toLowerCase().includes(this.searching.toLowerCase());
-      //   });
-      //   return el3;
-      // } else {
-      //   return el;
-      // }
-    },
     filteredList(state, payload) {
       state.items = payload;
+    },
+    orderListByPriceAscending(state) {
+      console.log(state.items)
+      state.items.sort(function(a, b) {
+        return parseFloat(a.fields.price) - parseFloat(b.fields.price)
+      })
+    },
+    orderListByPriceDiscending(state) {
+      console.log(state.items)
+      state.items.sort(function(a, b) {
+        return parseFloat(b.fields.price) - parseFloat(a.fields.price)
+      })
     }
   }
 });
