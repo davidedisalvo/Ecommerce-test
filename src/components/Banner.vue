@@ -22,7 +22,7 @@ export default {
 <style lang="scss" scoped>
 .jumbotron {
   height: 700px;
-  @media only screen and (max-width: 400px) {
+  @media only screen and (max-width: 480px) {
     height: 400px;
   }
   background-size: cover;
@@ -34,7 +34,7 @@ export default {
     margin-top: 20%;
     display: flex;
     flex-direction: column;
-    @media only screen and (max-width: 400px) {
+    @media only screen and (max-width: 480px) {
       align-items: center;
     }
     h1 {
@@ -42,8 +42,8 @@ export default {
       font-size: 50px;
       letter-spacing: 5px;
       font-weight: bold;
-      @media only screen and (max-width: 400px) {
-        font-size: 48px;
+      @media only screen and (max-width: 480px) {
+        font-size: 40px;
       }
     }
   }

@@ -84,7 +84,14 @@ export default {
 .navbar {
   background: #5f5c5a;
 }
-
+.navbar-toggler-icon:focus {
+  border: none;
+  outline: unset;
+  box-shadow: none;
+}
+.navbar-toggler:focus {
+  outline: unset;
+}
 .nav-item {
   a {
     color: white;

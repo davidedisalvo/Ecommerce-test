@@ -32,16 +32,15 @@ export default new Vuex.Store({
       this.state.openCart = !defaultValue;
     },
     openCart(state) {
-      const x = window.matchMedia("(min-width: 400px)")
-      if(x.matches) {
-        this.state.openCart = true
+      const x = window.matchMedia("(min-width: 400px)");
+      if (x.matches) {
+        this.state.openCart = true;
       }
-
     },
     closeCart() {
-      const x = window.matchMedia("(min-width: 400px)")
-      if(x.matches) {
-        this.state.openCart = false
+      const x = window.matchMedia("(min-width: 400px)");
+      if (x.matches) {
+        this.state.openCart = false;
       }
     },
 
@@ -67,16 +66,14 @@ export default new Vuex.Store({
       state.items = payload;
     },
     orderListByPriceAscending(state) {
-      console.log(state.items)
       state.items.sort(function(a, b) {
-        return parseFloat(a.fields.price) - parseFloat(b.fields.price)
-      })
+        return parseFloat(a.fields.price) - parseFloat(b.fields.price);
+      });
     },
-    orderListByPriceDiscending(state) {
-      console.log(state.items)
+    orderListByPriceDicending(state) {
       state.items.sort(function(a, b) {
-        return parseFloat(b.fields.price) - parseFloat(a.fields.price)
-      })
+        return parseFloat(b.fields.price) - parseFloat(a.fields.price);
+      });
     }
   }
 });

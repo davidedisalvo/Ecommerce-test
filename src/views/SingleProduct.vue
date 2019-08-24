@@ -92,6 +92,13 @@ export default {
   display: flex;
   margin-top: 30px;
 }
+
+h1 {
+  @media only screen and (max-width: 480px) {
+    padding: 0 !important;
+    margin-top: 70px;
+  }
+}
 </style>
 
 

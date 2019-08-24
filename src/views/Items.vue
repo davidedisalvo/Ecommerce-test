@@ -19,7 +19,7 @@
     </b-list-group>
     <h3 class="noItem" v-if="this.$store.state.cart.length < 1">You don't have any item in your cart</h3>
 
-    <h4 v-if="this.$store.state.cart.length > 0">Total price: {{totalPrice}}</h4>
+    <h4 v-if="this.$store.state.cart.length > 0">Total price: {{totalPrice}}€</h4>
   </div>
 </template>
 <script>

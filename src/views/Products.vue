@@ -2,9 +2,10 @@
   <div class="products">
     <h1 class="title-featured">PRODUCTS</h1>
     <Filters :products="featuredProducts"/>
+
     <b-container fluid>
-      <b-row>
-        <b-col col lg="3" v-for="item in $store.state.items">
+      <transition-group name="flip-list" tag="div" class="row">
+        <b-col col lg="3" v-for="item in $store.state.items" :key="item.sys.id">
           <b-card
             v-match-heights="{
                 el: ['.item', '.card-title']}"
@@ -29,7 +30,7 @@
             <i class="fas fa-check"></i>
           </b-card>
         </b-col>
-      </b-row>
+      </transition-group>
     </b-container>
   </div>
 </template>
@@ -109,6 +110,10 @@ h1 {
 
 .col {
   padding-bottom: 15px;
+}
+
+.flip-list-move {
+  transition: transform 1s;
 }
 </style>
 
