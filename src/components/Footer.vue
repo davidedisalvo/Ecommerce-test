@@ -50,7 +50,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   padding: 20px;
   h4 {
     padding: 5px;
@@ -75,6 +75,7 @@
 }
 
 ul {
+  margin: 0;
   list-style: none;
   display: flex;
   flex-direction: column;
