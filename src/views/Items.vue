@@ -75,6 +75,7 @@ img {
 
 .items {
   margin-top: 56px;
+  min-height: calc(100vh - 206px);
 }
 .list-group-item:first-child,
 .list-group-item:last-child {
