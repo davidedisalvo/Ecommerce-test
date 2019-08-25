@@ -65,10 +65,19 @@ export default {
 
       this.$store.commit("addToCart", itemInCart);
       this.$store.commit("openCart");
+    },
+    handleScroll(e) {
+      if (e.path[1].scrollY > 166) {
+        document.getElementById("filter").classList.add("sticky");
+      }
+      //   console.log(e.path[1].scrollY);
     }
   },
-  mounted() {
-    console.log(this.featuredProducts);
+  created() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  destroyed() {
+    window.removeEventListener("scroll", this.handleScroll);
   }
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <div class="filters">
+  <div class="filters" id="filter">
     <h1>Filter</h1>
     <div class="filter-list">
       <div class="range">
@@ -90,6 +90,11 @@ export default {
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
+}
+.sticky {
+  position: sticky;
+  top: 50px;
+  z-index: 33;
 }
 
 .searching {
