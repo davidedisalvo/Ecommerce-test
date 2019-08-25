@@ -79,6 +79,8 @@ export default {
 
 h1 {
   font-weight: bold;
+  margin-bottom: 100px;
+  margin-top: 100px;
   @media only screen and (max-width: 480px) {
     margin-bottom: 50px;
   }

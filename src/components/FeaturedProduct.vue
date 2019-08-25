@@ -25,7 +25,7 @@
               </b-button>
               <b-button href="#" @click="addToCart(item)">Buy</b-button>
             </div>
-            <i class="fas fa-check"></i>
+            <i class="fas fa-check-circle"></i>
           </b-card>
         </b-col>
       </b-row>
@@ -104,14 +104,17 @@ export default {
   margin: 10px;
   background: #646d74;
 }
-.fa-check {
-  display: none;
+.fa-check-circle {
+  opacity: 0;
+  position: absolute;
+  top: 95%;
+  right: 0;
 }
 
 .item.highlight {
-  border: 2px solid green;
-  .fa-check {
-    display: block;
+  .fa-check-circle {
+    color: green;
+    animation: mymove 1s cubic-bezier(0, 0.66, 0.57, 1.75);
   }
 }
 
@@ -120,6 +123,21 @@ h5 {
 }
 .col {
   margin-bottom: 60px;
+}
+
+@keyframes mymove {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    transform: scale(3);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1.5);
+  }
 }
 </style>
 

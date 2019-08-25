@@ -43,4 +43,8 @@ body {
   height: 100%;
   margin: 0;
 }
+
+.btn {
+  background-color: #5f5c5a !important;
+}
 </style>
